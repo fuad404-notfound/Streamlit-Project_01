@@ -3,7 +3,6 @@ from dotenv import load_dotenv
 import os, io
 from gtts import gTTS
 import streamlit as st
-import gtts
 
 # loading the environment variable
 load_dotenv()
@@ -23,7 +22,7 @@ def note_generator(images):
     return response.text
 # audio generator
 def audio_transcription(text):
-    speech = gtts.gTTS(text, lang='en', slow=False)
+    speech = gTTS(text, lang='en', slow=False)
     audio_buffer = io.BytesIO()
     speech.write_to_fp(audio_buffer)
     return audio_buffer
